@@ -6,9 +6,9 @@
  - Java 11
  - Spring Boot
  - Spring Cloud
- - Swagger
- - JUnit
- - Mockito
+ - Unit Test
+ - Integration Test
+ - Contract Test
  
 ### Requirements
 
@@ -25,9 +25,9 @@ For building and running the application you need:
   
 ### Port
 ```
-  http://localhost:8088
+  http://localhost:8081
 ```
 
-### Features (with unit && integration && contract tests)
+### Unit tests && Integration tests && Contract tests
 
-
+![test](https://github.com/mehmetpekdemir/Spring-Boot-Hexagonal-Architecture/blob/develop/docs/Test.png)
