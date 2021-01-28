@@ -2,6 +2,8 @@ package com.mehmetpekdemir.hexagonalarchitecture;
 
 import com.mehmetpekdemir.hexagonalarchitecture.infrastructure.adapters.task.jpa.TaskJpaRepository;
 import com.mehmetpekdemir.hexagonalarchitecture.infrastructure.adapters.task.jpa.entity.TaskEntity;
+import com.mehmetpekdemir.hexagonalarchitecture.infrastructure.adapters.taskversion.jpa.TaskVersionJpaRepository;
+import com.mehmetpekdemir.hexagonalarchitecture.infrastructure.adapters.taskversion.jpa.entity.TaskVersionEntity;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,11 +21,20 @@ public class HexagonalArchitectureApplication {
     }
 
     @Bean
-    CommandLineRunner createInitialData(TaskJpaRepository taskJpaRepository) {
+    CommandLineRunner createInitialData(TaskJpaRepository taskJpaRepository, TaskVersionJpaRepository taskVersionJpaRepository) {
         return (args) -> {
-            taskJpaRepository.save(new TaskEntity("Task Name 1","Task Description 1"));
-            taskJpaRepository.save(new TaskEntity("Task Name 2","Task Description 2"));
-            taskJpaRepository.save(new TaskEntity("Task Name 3","Task Description 3"));
+            TaskEntity taskEntity = new TaskEntity();
+            taskEntity.setName("Task Name 1");
+            taskJpaRepository.save(taskEntity);
+
+            TaskVersionEntity taskVersionEntity = new TaskVersionEntity();
+            taskVersionEntity.setSubject("Subject 1");
+            taskVersionEntity.setVersionNumber(1);
+            taskVersionEntity.setDescription("Description 1");
+            taskVersionEntity.setTask(taskEntity);
+
+            taskVersionJpaRepository.save(taskVersionEntity);
+
         };
     }
 

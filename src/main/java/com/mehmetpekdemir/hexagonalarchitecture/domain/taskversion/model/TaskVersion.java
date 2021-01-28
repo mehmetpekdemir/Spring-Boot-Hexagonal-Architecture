@@ -1,4 +1,4 @@
-package com.mehmetpekdemir.hexagonalarchitecture.domain.task.model;
+package com.mehmetpekdemir.hexagonalarchitecture.domain.taskversion.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,11 +13,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Task {
+public class TaskVersion {
 
     private Long id;
-
-    private String name;
 
     private Integer versionNumber;
 

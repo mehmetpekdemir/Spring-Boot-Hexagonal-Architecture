@@ -6,7 +6,6 @@ import lombok.Builder;
 import lombok.Data;
 
 /**
- * 
  * @author MEHMET PEKDEMIR
  * @since 1.0
  */
@@ -14,10 +13,10 @@ import lombok.Data;
 @Builder
 public class Response<T> {
 
-	private T data;
+    private T data;
 
-	private ErrorResponse errors;
+    private ErrorResponse errors;
 
-	private LocalDate time;
+    private LocalDate time;
 
 }

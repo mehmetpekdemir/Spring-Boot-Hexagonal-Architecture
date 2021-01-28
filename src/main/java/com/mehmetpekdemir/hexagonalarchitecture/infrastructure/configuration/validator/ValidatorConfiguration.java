@@ -7,7 +7,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import lombok.RequiredArgsConstructor;
 
 /**
- * 
  * @author MEHMET PEKDEMIR
  * @since 1.0
  */
@@ -15,11 +14,11 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ValidatorConfiguration implements WebMvcConfigurer {
 
-	private final Validator validator;
+    private final Validator validator;
 
-	@Override
-	public Validator getValidator() {
-		return validator;
-	}
+    @Override
+    public Validator getValidator() {
+        return validator;
+    }
 
 }

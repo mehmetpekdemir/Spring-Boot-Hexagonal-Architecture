@@ -4,7 +4,6 @@ import com.mehmetpekdemir.hexagonalarchitecture.infrastructure.adapters.task.jpa
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
- * 
  * @author MEHMET PEKDEMIR
  * @since 1.0
  */

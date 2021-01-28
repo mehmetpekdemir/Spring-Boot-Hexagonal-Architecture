@@ -13,9 +13,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Task {
-
-    private Long id;
+public class TaskCreate {
 
     private String name;
 

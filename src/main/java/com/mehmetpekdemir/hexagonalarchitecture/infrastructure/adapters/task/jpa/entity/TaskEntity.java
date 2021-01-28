@@ -1,12 +1,15 @@
 package com.mehmetpekdemir.hexagonalarchitecture.infrastructure.adapters.task.jpa.entity;
 
+import com.mehmetpekdemir.hexagonalarchitecture.infrastructure.adapters.taskversion.jpa.entity.TaskVersionEntity;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * 
  * @author MEHMET PEKDEMIR
  * @since 1.0
  */
@@ -16,19 +19,14 @@ import javax.persistence.*;
 @Table(name = "tasks")
 public class TaskEntity {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@Column(name = "task_name", nullable = false, length = 50)
-	private String name;
+    @Column(name = "task_name", nullable = false, length = 50)
+    private String name;
 
-	@Column(name = "description", nullable = false, length = 400)
-	private String description;
-
-	public TaskEntity(String name, String description) {
-		this.name = name;
-		this.description = description;
-	}
+    @OneToMany(mappedBy = "task")
+    private List<TaskVersionEntity> taskVersions = new ArrayList<>();
 
 }
