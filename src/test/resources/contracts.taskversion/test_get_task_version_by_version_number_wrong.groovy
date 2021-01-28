@@ -1,13 +1,13 @@
-package contracts.task
+package contracts.taskversion
 
 import org.springframework.cloud.contract.spec.Contract
 
 Contract.make {
-    name "Test get task by task id wrong"
-    description "Test get task by task id wrong"
+    name "Test get task version by version number wrong"
+    description "Test get task version by version number wrong"
 
     request {
-        url "/api/task/4"
+        url "/api/task-version/1/version/2"
 
         headers {
             header(contentType(), applicationJson())
@@ -28,8 +28,8 @@ Contract.make {
                 {
                     "data": null,
                     "errors": {
-                        "errorCode": "400",
-                        "errorDescription": "Task not found ! "
+                          "errorCode": "400",
+                          "errorDescription": "Version number not found !"
                     },
                     "time": "2021-01-29"
                 }    

@@ -3,17 +3,29 @@ package contracts.task
 import org.springframework.cloud.contract.spec.Contract
 
 Contract.make {
-    name "Test get task by task id correct"
-    description "Test get task by task id correct"
+    name "Test successful create task"
+    description "Test successful create task"
 
     request {
-        url "/api/task/1"
+        url "/api/task"
 
         headers {
             header(contentType(), applicationJson())
         }
 
-        method GET()
+        method POST()
+
+        body(
+                """
+            {
+                "name":"Test Task Name",
+                "versionNumber":1,
+                "subject":"Test subject",
+                "description":"Test description"
+            }
+                """
+        )
+
     }
 
     response {
@@ -27,12 +39,12 @@ Contract.make {
                 """
                 {
                     "data": {
-                        "id": 1,
-                        "name": "Task Name 1",
+                        "id": 2,
+                        "name": "Test Task Name"
                     },
                     "errors": null,
                     "time": "2021-01-29"
-                }           
+                }     
                            """
         )
 

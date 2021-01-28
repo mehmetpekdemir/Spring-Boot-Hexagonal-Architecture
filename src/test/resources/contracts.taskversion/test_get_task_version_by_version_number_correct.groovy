@@ -1,13 +1,13 @@
-package contracts.task
+package contracts.taskversion
 
 import org.springframework.cloud.contract.spec.Contract
 
 Contract.make {
-    name "Test get task by task id correct"
-    description "Test get task by task id correct"
+    name "Test get task version by version number correct"
+    description "Test get task version by version number correct"
 
     request {
-        url "/api/task/1"
+        url "/api/task-version/1/version/1"
 
         headers {
             header(contentType(), applicationJson())
@@ -27,12 +27,14 @@ Contract.make {
                 """
                 {
                     "data": {
-                        "id": 1,
-                        "name": "Task Name 1",
+                            "id": 1,
+                            "versionNumber": 1,
+                            "subject": "Subject 1",
+                            "description": "Description 1"
                     },
                     "errors": null,
                     "time": "2021-01-29"
-                }           
+                }        
                            """
         )
 

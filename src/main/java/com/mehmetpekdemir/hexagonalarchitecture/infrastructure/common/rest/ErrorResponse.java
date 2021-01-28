@@ -4,7 +4,6 @@ import lombok.Builder;
 import lombok.Data;
 
 /**
- * 
  * @author MEHMET PEKDEMIR
  * @since 1.0
  */
@@ -12,8 +11,8 @@ import lombok.Data;
 @Builder
 class ErrorResponse {
 
-	private String errorCode;
+    private String errorCode;
 
-	private String errorDescription;
+    private String errorDescription;
 
 }

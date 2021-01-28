@@ -6,7 +6,6 @@ import lombok.Data;
 import java.util.List;
 
 /**
- * 
  * @author MEHMET PEKDEMIR
  * @since 1.0
  */
@@ -14,7 +13,7 @@ import java.util.List;
 @Builder
 class DataResponse<T> {
 
-	@Builder.Default
-	private List<T> items = List.of();
+    @Builder.Default
+    private List<T> items = List.of();
 
 }
