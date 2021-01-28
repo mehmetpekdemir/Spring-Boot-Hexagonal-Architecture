@@ -106,6 +106,7 @@ class TaskControllerIntegrationTests {
         ).andExpect(
                 content().json(responseContent)
         ).andDo(print());
+
     }
 
 }

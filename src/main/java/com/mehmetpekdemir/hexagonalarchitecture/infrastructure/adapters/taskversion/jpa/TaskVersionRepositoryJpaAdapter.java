@@ -28,22 +28,22 @@ public class TaskVersionRepositoryJpaAdapter implements TaskVersionRepository {
     }
 
     @Override
-    public TaskVersion createTaskVersion(TaskCreate taskCreate, Long taskId) {
+    public TaskVersion createTaskVersion(final TaskCreate taskCreate, final Long taskId) {
         return toModel(taskVersionJpaRepository.save(toEntity(taskCreate, taskId)));
     }
 
-    private TaskVersionEntity getByTaskIdAndVersionNumber(Long taskId, Integer versionNumber) {
+    private TaskVersionEntity getByTaskIdAndVersionNumber(final Long taskId, final Integer versionNumber) {
         return taskVersionJpaRepository.findByTaskIdAndVersionNumber(taskId, versionNumber)
                 .orElseThrow(() -> new TaskBusinessException("version.number.not.found"));
     }
 
-    private TaskEntity findTaskByTaskId(Long taskId) {
+    private TaskEntity findTaskByTaskId(final Long taskId) {
         return taskJpaRepository.findById(taskId)
                 .orElseThrow(() -> new TaskBusinessException("task.not.found"));
     }
 
-    private TaskVersionEntity toEntity(TaskCreate taskCreate, Long taskId) {
-        TaskVersionEntity taskVersionEntity = new TaskVersionEntity();
+    private TaskVersionEntity toEntity(final TaskCreate taskCreate, final Long taskId) {
+        var taskVersionEntity = new TaskVersionEntity();
         taskVersionEntity.setTask(findTaskByTaskId(taskId));
         taskVersionEntity.setSubject(taskCreate.getSubject());
         taskVersionEntity.setVersionNumber(taskCreate.getVersionNumber());
@@ -51,7 +51,7 @@ public class TaskVersionRepositoryJpaAdapter implements TaskVersionRepository {
         return taskVersionEntity;
     }
 
-    private TaskVersion toModel(TaskVersionEntity taskVersionEntity) {
+    private TaskVersion toModel(final TaskVersionEntity taskVersionEntity) {
         return TaskVersion.builder()
                 .id(taskVersionEntity.getId())
                 .versionNumber(taskVersionEntity.getVersionNumber())
