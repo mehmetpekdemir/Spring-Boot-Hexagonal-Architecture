@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 1.0
  */
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/task")
 @RequiredArgsConstructor
 public class TaskController extends BaseController {
 
     private final TaskFacade taskFacade;
 
-    @GetMapping("task/{taskId}")
+    @GetMapping("{taskId}")
     public Response<?> getTaskByTaskId(@PathVariable(value = "taskId") final Long taskId) {
         final var task = taskFacade.getTaskByTaskId(taskId);
         return respond(TaskResponse.fromModel(task));
