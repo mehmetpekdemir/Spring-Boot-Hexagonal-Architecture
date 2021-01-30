@@ -1,4 +1,4 @@
-package contracts.task
+package contracts
 
 import org.springframework.cloud.contract.spec.Contract
 
@@ -7,7 +7,7 @@ Contract.make {
     description "Test get task by task id wrong"
 
     request {
-        url "/api/task/4"
+        url "/api/v1/task/4"
 
         headers {
             header(contentType(), applicationJson())
@@ -29,9 +29,9 @@ Contract.make {
                     "data": null,
                     "errors": {
                         "errorCode": "400",
-                        "errorDescription": "Task not found ! "
+                        "errorDescription": "Task not found !"
                     },
-                    "time": "2021-01-29"
+                    "time": "2021-01-30"
                 }    
                            """
         )

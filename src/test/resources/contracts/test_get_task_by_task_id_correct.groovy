@@ -1,4 +1,4 @@
-package contracts.task
+package contracts
 
 import org.springframework.cloud.contract.spec.Contract
 
@@ -7,7 +7,7 @@ Contract.make {
     description "Test get task by task id correct"
 
     request {
-        url "/api/task/1"
+        url "/api/v1/task/1"
 
         headers {
             header(contentType(), applicationJson())
@@ -29,10 +29,12 @@ Contract.make {
                     "data": {
                         "id": 1,
                         "name": "Task Name 1",
+                        "subject": "Test Subject 1",
+                        "description": "Test Description 1"
                     },
                     "errors": null,
-                    "time": "2021-01-29"
-                }           
+                    "time": "2021-01-30"
+                }         
                            """
         )
 
