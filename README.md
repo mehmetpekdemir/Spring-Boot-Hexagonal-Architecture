@@ -5,10 +5,8 @@
 ### Tech Stack
  - Java 11
  - Spring Boot
- - Spring Cloud
- - Unit Test
- - Integration Test
- - Contract Test
+ - Integration Tests
+ - Consumer Driven Contract Tests
  
 ### Requirements
 
@@ -28,6 +26,6 @@ For building and running the application you need:
   http://localhost:8081
 ```
 
-### Unit tests && Integration tests && Contract tests
+### Integration tests && Contract tests
 
 ![test](https://github.com/mehmetpekdemir/Spring-Boot-Hexagonal-Architecture/blob/develop/docs/Test.png)
